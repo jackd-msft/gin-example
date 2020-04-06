@@ -1,0 +1,4 @@
+import keras_configs
+optimizer = @SGD()
+SGD.learning_rate = 1e-3
+lr = 1e-3

@@ -1,0 +1,4 @@
+import custom
+include 'configs/mlp.gin'
+get_classification_model.features_fn = @custom_mlp
+custom_mlp.dropout_rate = 0.6

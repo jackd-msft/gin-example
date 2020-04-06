@@ -1,0 +1,3 @@
+import core
+train/rescale_preprocess.noise_stddev = 1e-2
+get_datasets.train_map_fn = @train/rescale_preprocess

@@ -1,0 +1,7 @@
+import keras_configs
+optimizer = @get_optimizer()
+get_optimizer.learning_rate = @ExponentialDecay()
+get_optimizer.optimizer_fn = @Adam
+ExponentialDecay.initial_learning_rate = 1e-3
+ExponentialDecay.decay_steps = 1000
+ExponentialDecay.decay_rate = 0.5

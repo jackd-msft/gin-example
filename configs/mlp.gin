@@ -1,0 +1,10 @@
+import core_gin
+import keras_configs
+include 'configs/utils/reg.gin'
+get_classification_model.features_fn = @mlp_features
+mlp_features.dense_units = %dense_units
+get_classification_model.optimizer = %optimizer
+
+# give macros values
+optimizer = @Adam()
+dense_units = (128, 16)

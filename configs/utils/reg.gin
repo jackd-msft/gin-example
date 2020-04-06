@@ -1,0 +1,5 @@
+import keras_configs
+Dense.kernel_regularizer = @l2()
+Conv2D.kernel_regularizer = @l2()
+l2.l = %reg
+reg = 5e-4
