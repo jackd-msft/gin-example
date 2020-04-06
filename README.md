@@ -142,8 +142,11 @@ This essentially means that all parameters apart from `input_spec` and `num_clas
 The gin CLI is defined in `main_gin.py`. It is extremely basic.
 
 ```python
+import sys
+import gin
+import core_gin
+
 def parse_args():
-    import sys
     args = sys.argv[1:]
     files = []
     bindings = []
@@ -157,10 +160,10 @@ def parse_args():
 
 def main():
     parse_args()
-    train_ds, test_ds, num_classes = core.get_datasets()
+    train_ds, test_ds, num_classes = core_gin.get_datasets()
     inputs_spec = train_ds.element_spec[0]
-    model = core.get_classification_model(inputs_spec, num_classes)
-    core.fit(model, train_ds, test_ds)
+    model = core_gin.get_classification_model(inputs_spec, num_classes)
+    core_gin.fit(model, train_ds, test_ds)
 ```
 
 Essentially it takes command line args and interprets them as bindings if they contain an equals sign (`=`) or else a `gin` file (appending `.gin` if missing, and relative to the calling directory).
